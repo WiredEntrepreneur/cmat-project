@@ -14,7 +14,7 @@ resource "aws_key_pair" "aws-key" { # Create a "web-key" for AWS!!
 
 
   provisioner "local-exec" { # Create "web-key.pem" on your computer!!
-    command = "echo '${tls_private_key.mykey.private_key_pem}' > ./web-key.pem" && chmod 600 ./web-key.pem"
+    command = "echo '${tls_private_key.mykey.private_key_pem}' > ./web-key.pem && chmod 600 ./web-key.pem"
   }
 }
 
