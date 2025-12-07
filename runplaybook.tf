@@ -17,6 +17,7 @@ resource "null_resource" "run_playbook" {
   triggers = {
     instance_id = aws_instance.myec2.id
     instance_ip = aws_instance.myec2.public_ip
+    playbook_sha = filesha1("${path.module}/playbook.yml")
   }
 
   provisioner "local-exec" {
