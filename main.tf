@@ -65,10 +65,10 @@ resource "aws_security_group" "sl-sg" {
   description = "Allow SSH/HTTP/HTTPS inbound and all outbound traffic"
   vpc_id      = aws_vpc.sl-vpc.id
 
-  lifecycle {
-    prevent_destroy = true
-  }
-  
+  # lifecycle {
+  #   prevent_destroy = true
+  # }
+
   dynamic "ingress" {
     for_each = var.sg_ports
     iterator = ports
