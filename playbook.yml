@@ -1,5 +1,6 @@
 - name: Install Python 3.9 and Maven on webserver
   hosts: webserver
+  gather_facts: no
   become: true
   tasks:
     - name: Install python39
@@ -11,6 +12,10 @@
       yum:
         name: python39-pip
         state: present
+
+    - name: Switch Ansible to python3.9
+      set_fact:
+        ansible_python_interpreter: /usr/bin/python3.9
 
     - name: Install Maven
       yum:
