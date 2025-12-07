@@ -1,0 +1,25 @@
+- name: Install Python 3.9 and Maven on webserver
+  hosts: webserver
+  become: true
+  tasks:
+
+    - name: Install python39
+      yum:
+        name: python39
+        state: present
+
+    - name: Install python39-pip
+      yum:
+        name: python39-pip
+        state: present
+
+    - name: Install Maven
+      yum:
+        name: maven
+        state: present
+
+    - name: Create a file to test Ansible execution
+      file:
+        path: /tmp/ansible.txt
+        state: touch
+
