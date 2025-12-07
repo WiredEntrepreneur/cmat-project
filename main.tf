@@ -121,10 +121,11 @@ data "aws_ami" "al2023" {
 #####################
 
 resource "aws_instance" "myec2" {
-  ami           = data.aws_ami.myami.id
+  #ami           = data.aws_ami.myami.id
+  ami = data.aws_ami.al2023.id
   instance_type = "t2.micro"
 
-  subnet_id              = aws_subnet.sl-subnet.id
+  subnet_id = aws_subnet.sl-subnet.id
   vpc_security_group_ids = [aws_security_group.sl-sg.id]
 
   # Use the key pair we created in mykey.tf
