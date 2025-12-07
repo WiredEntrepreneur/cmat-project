@@ -2,7 +2,6 @@
   hosts: webserver
   become: true
   tasks:
-
     - name: Install python39
       yum:
         name: python39
@@ -22,4 +21,3 @@
       file:
         path: /tmp/ansible.txt
         state: touch
-
