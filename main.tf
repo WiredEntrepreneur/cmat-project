@@ -97,15 +97,24 @@ resource "aws_security_group" "sl-sg" {
 # AMI
 #####################
 
-data "aws_ami" "myami" {
-  most_recent = true
-  owners      = ["amazon"]
+# data "aws_ami" "myami" {
+#   most_recent = true
+#   owners      = ["amazon"]
 
+#   filter {
+#     name   = "name"
+#     values = ["amzn2-ami-hvm*"]
+#   }
+# }
+data "aws_ami" "al2023" {
+  owners      = ["amazon"]
+  most_recent = true
   filter {
     name   = "name"
-    values = ["amzn2-ami-hvm*"]
+    values = ["al2023-ami-*-x86_64"]
   }
 }
+
 
 #####################
 # EC2 instance
