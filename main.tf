@@ -142,6 +142,6 @@ resource "local_file" "inventory" {
 
   content = <<EOF
 [webserver]
-${aws_instance.myec2.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=${path.module}/web-key.pem ansible_python_interpreter=/usr/bin/python3.9 ansible_ssh_common_args='-o IdentitiesOnly=yes'
+${aws_instance.myec2.public_ip} ansible_user=ec2-user ansible_ssh_private_key_file=${path.module}/web-key.pem ansible_python_interpreter=/usr/bin/python3 ansible_ssh_common_args='-o IdentitiesOnly=yes'
 EOF
 }
